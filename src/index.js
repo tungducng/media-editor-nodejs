@@ -1,5 +1,4 @@
 const express = require("express");
-const cpeak = require("cpeak");
 const { authenticate, serverIndex } = require("./middleware/index.js");
 const apiRouter = require("./router.js");
 const path = require("path");
@@ -15,8 +14,7 @@ const server = express();
 server.use(express.static(path.join(__dirname, "../public")));
 
 // For parsing JSON body
-server.use(cpeak.parseJSON);
-
+server.use(express.json());
 // For authentication
 server.use(authenticate);
 
