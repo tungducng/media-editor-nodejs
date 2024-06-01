@@ -1,16 +1,14 @@
 const express = require("express");
-const { authenticate, serverIndex } = require("./middleware/index.js");
-const apiRouter = require("./router.js");
+const { authenticate, serverIndex } = require("./middlewares/index.js");
 const path = require("path");
 
-const PORT = 8060;
+const PORT = 8062;
 
 const server = express();
 
 // ------ Middlewares ------ //
 
 // For serving static files
-// server.use(cpeak.serveStatic(path.join(__dirname, "../public")));
 server.use(express.static(path.join(__dirname, "../public")));
 
 // For parsing JSON body
@@ -22,7 +20,7 @@ server.use(authenticate);
 server.use(serverIndex);
 
 // ------ API Routes ------ //
-apiRouter(server);
+server.use('', require('./routes'))
 
 // Handle all the errors that could happen in the routes
 server.use((error, req, res, next) => {
