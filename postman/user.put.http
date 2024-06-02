@@ -1,0 +1,16 @@
+@host = http://localhost:8060/api
+
+### Update User Information
+# This endpoint is used for updating user information. 
+# The user provides their username, name, and new password. 
+# The server updates the user's information and returns a response indicating successful update.
+
+PUT {{host}}/user HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "user01",
+  "name": "name",
+  "password": "password"
+}

@@ -1,0 +1,9 @@
+@host = http://localhost:8060/api
+
+### User Logout
+# This endpoint is used for user logout. 
+# The server invalidates the user's session and returns a response indicating successful logout.
+
+DELETE {{host}}/logout HTTP/1.1
+Content-Type: application/json
+Accept: application/json

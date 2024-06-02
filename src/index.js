@@ -1,8 +1,9 @@
 const express = require("express");
 const { authenticate, serverIndex } = require("./middlewares/index.js");
 const path = require("path");
+require('dotenv').config();
 
-const PORT = 8062;
+const PORT = process.env.PORT || 3000;
 
 const server = express();
 
@@ -34,6 +35,6 @@ server.use((error, req, res, next) => {
   }
 });
 
-server.listen(PORT, () => {
+server.listen(PORT , () => {
   console.log(`Server has started on port ${PORT}`);
 });
